@@ -4,9 +4,10 @@
       <div class="container">
         <div class="md-layout">
           <div
-            class="md-layout-item md-size-70 md-small-size-70 md-xsmall-size-100"
+            class="md-layout-item md-size-50 md-small-size-70 md-xsmall-size-100"
           >
-            <h1 class="title">We Believe that Everyone has Something Worth Sharing</h1>
+            <h1 class="title" v-if="!isMobile">Everyone has Something Worth Sharing</h1>
+            <h2 class="title" v-if="isMobile">Everyone has Something Worth Sharing</h2>
             <h4>
               Tiap minggu malam, kami Alumni SDIT Asy Syaamil Bontang mengadakan diskusi rutin yang membahas pengalaman, 
               ide, dan lintasan pikiran. Apa yang kami diskusikan dapat dilihat di channel YouTube kami.
@@ -291,6 +292,9 @@ export default {
       return {
         backgroundImage: `url(${this.header})`
       };
+    },
+    isMobile() {
+        return ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
     }
   }
 };

@@ -8,7 +8,7 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <h3 class="md-title">Minggu Malam</h3>
+        <h3 v-if="!isMobile" class="md-title">Minggu Malam</h3>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -209,6 +209,9 @@ export default {
     showDownload() {
       const excludedRoutes = ["login", "landing", "profile"];
       return excludedRoutes.every(r => r !== this.$route.name);
+    },
+    isMobile() {
+        return ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
     }
   },
   methods: {
