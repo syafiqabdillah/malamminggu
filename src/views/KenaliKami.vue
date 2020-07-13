@@ -22,7 +22,7 @@
                 <h4 class="card-title">
                   Syafiq Abdillah Umarghanis
                   <br />
-                  <small class="card-description text-muted">ELI ( Expert Larry Impersonator )</small>
+                  <small class="card-description text-muted">LIE ( Larry Impersonator Expert )</small>
                 </h4>
 
                 <md-card-content>
