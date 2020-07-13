@@ -30,10 +30,9 @@
             <div
               class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
             >
-              <h2 class="title text-center">About Us</h2>
+              <h2 class="title text-center">Tentang kami</h2>
               <h5 class="description">
-                Kami adalah blabla
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, sed ducimus ad, a ut aperiam perferendis est tenetur asperiores suscipit officiis esse nulla quos quas, harum optio architecto at laboriosam?
+                Kami adalah alumni SDIT Asy Syaamil Bontang yang menyempatkan diri untuk berdiskusi dengan sesama alumni tiap minggunya. Saling berkabar, berbagi cerita, dan berdiskusi adalah kegiatan yang kami lakukan tiap minggu malam. Kami percaya bahwa semua alumni, terlepas dari apapun jalan yang mereka pilih semenjak menjadi alumni, memiliki sesuatu yang bisa dibagi.
               </h5>
             </div>
           </div>
@@ -46,8 +45,7 @@
                   </div>
                   <h4 class="info-title">Diskusi Rutin</h4>
                   <p>
-                    Tiap minggu malam jam 20.00 WITA, kami melakukan diskusi blablabla 
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime quos ipsum dolor odit. Impedit, repellendus. Sint necessitatibus aspernatur, quasi architecto perferendis odit commodi, maiores veniam ducimus accusamus qui. Delectus, non!
+                    Nuansa maupun isi dari diskusi rutin yang kami lakukan sangat bervariasi. Terkadang, kami ngobrol seperti sedang nongkrong di kafe kopi. Namun, tidak jarang juga kami berdiskusi seperti organisasi penting yang sedang rapat untuk merumuskan sesuatu. 
                   </p>
                 </div>
               </div>
@@ -58,8 +56,7 @@
                   </div>
                   <h4 class="info-title">Pendataan Alumni</h4>
                   <p>
-                    Kami mendata para alumni blablabla 
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore deserunt officia magni, quidem eaque debitis dolorum maxime eius quos rerum voluptate ea dicta voluptatem minima praesentium soluta consequatur, porro dignissimos!
+                    Selain mengadakan diskusi rutin, kami juga melakukan pendataan alumni yang rencananya akan diadakan tiap tahun. Pendataan ini berguna untuk mengetahui aktivitas para alumni tiap tahunnya. Dari informasi yang didapat dari pendataan ini, kami berharap dapat melakukan suatu kegiatan yang bermanfaat untuk alumni itu sendiri, sekolah, maupun masyarakat. 
                   </p>
                 </div>
               </div>
@@ -67,164 +64,16 @@
           </div>
         </div>
       </div>
-      <div class="section text-center">
-        <div class="container">
-          <h2 class="title">Here is our team</h2>
-          <div class="team">
-            <div class="md-layout">
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="team-player">
-                  <md-card class="md-card-plain">
-                    <div class="md-layout-item md-size-50 mx-auto">
-                      <img
-                        :src="teamImg1"
-                        alt="Thumbnail Image"
-                        class="img-raised rounded-circle img-fluid"
-                      />
-                    </div>
-                    <h4 class="card-title">
-                      Gigi Hadid
-                      <br />
-                      <small class="card-description text-muted">Model</small>
-                    </h4>
 
-                    <md-card-content>
-                      <p class="card-description">
-                        You can write here details about one of your team
-                        members. You can give more details about what they do.
-                        Feel free to add some <a href="#">links</a> for people
-                        to be able to follow them outside the site.
-                      </p>
-                    </md-card-content>
+      <KenaliKami />
 
-                    <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-facebook-square"></i>
-                      </md-button>
-                    </md-card-actions>
-                  </md-card>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="team-player">
-                  <md-card class="md-card-plain">
-                    <div class="md-layout-item md-size-50 mx-auto">
-                      <img
-                        :src="teamImg2"
-                        alt="Thumbnail Image"
-                        class="img-raised rounded-circle img-fluid"
-                      />
-                    </div>
-                    <h4 class="card-title">
-                      Carla Hortensia
-                      <br />
-                      <small class="card-description text-muted"
-                        >Designer</small
-                      >
-                    </h4>
-
-                    <md-card-content>
-                      <p class="card-description">
-                        You can write here details about one of your team
-                        members. You can give more details about what they do.
-                        Feel free to add some <a href="#">links</a> for people
-                        to be able to follow them outside the site.
-                      </p>
-                    </md-card-content>
-
-                    <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-linkedin"></i>
-                      </md-button>
-                    </md-card-actions>
-                  </md-card>
-                </div>
-              </div>
-              <div class="md-layout-item md-medium-size-33 md-small-size-100">
-                <div class="team-player">
-                  <md-card class="md-card-plain">
-                    <div class="md-layout-item md-size-50 mx-auto">
-                      <img
-                        :src="teamImg3"
-                        alt="Thumbnail Image"
-                        class="img-raised rounded-circle img-fluid"
-                      />
-                    </div>
-                    <h4 class="card-title">
-                      Kendall Jenner
-                      <br />
-                      <small class="card-description text-muted">Model</small>
-                    </h4>
-
-                    <md-card-content>
-                      <p class="card-description">
-                        You can write here details about one of your team
-                        members. You can give more details about what they do.
-                        Feel free to add some <a href="#">links</a> for people
-                        to be able to follow them outside the site.
-                      </p>
-                    </md-card-content>
-
-                    <md-card-actions class="text-center">
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-twitter"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </md-button>
-                      <md-button
-                        href="javascript:void(0)"
-                        class="md-just-icon md-simple"
-                      >
-                        <i class="fab fa-facebook-square"></i>
-                      </md-button>
-                    </md-card-actions>
-                  </md-card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="section section-contacts">
         <div class="container">
           <div class="md-layout">
             <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto">
               <h2 class="text-center title">Titip sampein ke alumni dong!</h2>
               <h4 class="text-center description">
-                Kamu bisa titip salam, pertanyaan, atau bahkan iklan untuk para alumni. Kamu bisa bertanya tentang pengalaman 
-                ngampus, kerja, organisasi, bisnis, dll. Jika kamu punya bisnis, kamu juga bisa menitipkan 
-                iklan di sini agar bisnis kamu diketahui oleh semua alumni.
+                Kamu bisa titip salam, pertanyaan, atau bahkan iklan untuk para alumni. Kamu bisa bertanya tentang pengalaman ngampus, kerja, organisasi, bisnis, dll. Jika kamu punya bisnis, kamu juga bisa menitipkan iklan di sini agar bisnis kamu diketahui oleh semua alumni.
               </h4>
               <form class="contact-form">
                 <div class="md-layout">
@@ -260,25 +109,17 @@
 </template>
 
 <script>
+import KenaliKami from './KenaliKami.vue';
 export default {
   bodyClass: "landing-page",
+  components: {
+    KenaliKami,
+  },
   props: {
     header: {
       type: String,
       default: require("@/assets/img/bg7.jpg")
     },
-    teamImg1: {
-      type: String,
-      default: require("@/assets/img/faces/avatar.jpg")
-    },
-    teamImg2: {
-      type: String,
-      default: require("@/assets/img/faces/christian.jpg")
-    },
-    teamImg3: {
-      type: String,
-      default: require("@/assets/img/faces/kendall.jpg")
-    }
   },
   data() {
     return {
