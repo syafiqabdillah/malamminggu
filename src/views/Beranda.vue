@@ -247,7 +247,6 @@ export default {
             location.reload();
           })
           .catch(e => {
-            console.log(e);
             alert("Titipan kamu gagal kami terima :(");
             location.reload();
           });
