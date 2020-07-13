@@ -242,8 +242,7 @@ export default {
             email: this.email,
             pesan: this.pesan
           })
-          .then(r => {
-            console.log(r);
+          .then(() => {
             alert("Titipan kamu berhasil kami terima :)");
             location.reload();
           })
