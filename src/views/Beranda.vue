@@ -75,12 +75,12 @@
               <h4 class="text-center description">
                 Kamu bisa titip salam, pertanyaan, atau bahkan iklan untuk para alumni. Kamu bisa bertanya tentang pengalaman ngampus, kerja, organisasi, bisnis, dll. Jika kamu punya bisnis, kamu juga bisa menitipkan iklan di sini agar bisnis kamu diketahui oleh semua alumni.
               </h4>
-              <form class="contact-form">
+              <form @submit="kirimTitipan" class="contact-form">
                 <div class="md-layout">
                   <div class="md-layout-item md-size-50">
                     <md-field class="has-green">
                       <label>Name</label>
-                      <md-input v-model="name" type="text"></md-input>
+                      <md-input v-model="nama" type="text"></md-input>
                     </md-field>
                   </div>
                   <div class="md-layout-item md-size-50">
@@ -92,11 +92,11 @@
                 </div>
                 <md-field class="has-green" maxlength="5">
                   <label>Titipan</label>
-                  <md-textarea v-model="message"></md-textarea>
+                  <md-textarea v-model="pesan"></md-textarea>
                 </md-field>
                 <div class="md-layout">
                   <div class="md-layout-item md-size-33 mx-auto text-center">
-                    <md-button disabled class="md-success">Kirim</md-button>
+                    <md-button type="submit" class="md-success">Kirim</md-button>
                   </div>
                 </div>
               </form>
@@ -110,6 +110,13 @@
 
 <script>
 import KenaliKami from './KenaliKami.vue';
+import axios from 'axios';
+
+const host = 'http://localhost:5000';
+if (process.env.NODE_ENV === 'production') {
+  host = 'https://minggumalam-api.herokuapp.com';
+} 
+
 export default {
   bodyClass: "landing-page",
   components: {
@@ -123,9 +130,9 @@ export default {
   },
   data() {
     return {
-      name: null,
+      nama: null,
       email: null,
-      message: null
+      pesan: null
     };
   },
   computed: {
@@ -136,6 +143,29 @@ export default {
     },
     isMobile() {
         return ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+    }
+  },
+  methods:{
+    kirimTitipan(e){
+      e.preventDefault();
+      // alert(this.nama + this.email + this.pesan);
+      if (this.nama && this.email && this.pesan) {
+        axios.post(host + '/titip', {
+          nama: this.nama,
+          email: this.email,
+          pesan: this.pesan
+        })
+        .then(r => {
+          console.log(r);
+          alert("Titipan kamu berhasil kami terima :)");
+          location.reload();
+        })
+        .catch(e => {
+          console.log(e);
+          alert("Titipan kamu gagal kami terima :(");
+          location.reload();
+        })
+      }
     }
   }
 };
