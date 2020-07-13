@@ -112,10 +112,8 @@
 import KenaliKami from './KenaliKami.vue';
 import axios from 'axios';
 
-const host = 'http://localhost:5000';
-if (process.env.NODE_ENV === 'production') {
-  host = 'https://minggumalam-api.herokuapp.com';
-} 
+// const host = 'http://localhost:5000';
+const host = 'https://minggumalam-api.herokuapp.com';
 
 export default {
   bodyClass: "landing-page",
