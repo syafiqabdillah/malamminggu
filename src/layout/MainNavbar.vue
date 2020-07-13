@@ -62,7 +62,7 @@
                   </div>
                 </a>
               </li>
-<!-- 
+              <!-- 
               <md-list-item
                 href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                 target="_blank"
@@ -211,7 +211,9 @@ export default {
       return excludedRoutes.every(r => r !== this.$route.name);
     },
     isMobile() {
-        return ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
     }
   },
   methods: {

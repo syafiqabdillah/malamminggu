@@ -30,7 +30,8 @@
         </ul>
       </nav>
       <div class="copyright">
-        &copy; {{ year }}, made by Minggu Malam based on Material Vue Template Created by
+        &copy; {{ year }}, made by Minggu Malam based on Material Vue Template
+        Created by
         <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>
       </div>
     </div>

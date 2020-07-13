@@ -1,9 +1,9 @@
 {
-  "name": "vue-material-kit",
-  "author": "Creative Tim https://www.creative-tim.com/",
-  "description": "Vue Material Kit",
-  "version": "1.2.2",
-  "private": true,
+  "name": "minggumalam",
+  "author": "Syafiq Abdillah U",
+  "description": "Minggu Malam Web App",
+  "version": "1.0.0",
+  "private": false,
   "engines": {
     "node": "12.18.2",
     "npm": "6.14.5"
@@ -13,9 +13,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev",
-    "postinstall": "npm run build",
-    "start": "node server.js"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"
   },
   "dependencies": {
     "@vue/cli": "^4.4.6",
