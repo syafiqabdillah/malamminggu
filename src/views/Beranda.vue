@@ -182,9 +182,20 @@
                   <md-textarea v-model="pesan"></md-textarea>
                 </md-field>
                 <div class="md-layout">
+                  <div class="md-layout-item md-size-33 text-center mx-auto">
+                    <vue-recaptcha
+                      ref="recaptcha"
+                      v-if="!isLocal"
+                      @verify="onCaptchaVerified"
+                      @expired="onCaptchaExpired"
+                      sitekey="6LeIFrEZAAAAAFtfwyK5hozRVZp2asn9TaoGS8M1">
+                    </vue-recaptcha>
+                  </div>
+                </div>
+                <div class="md-layout">
                   <div class="md-layout-item md-size-33 mx-auto text-center">
-                    <md-button type="submit" class="md-success"
-                      >Kirim</md-button
+                    <md-button type="submit" class="md-success" @click="kirimTitipan"
+                      >KIRIM TITIPAN</md-button
                     >
                   </div>
                 </div>
@@ -199,12 +210,16 @@
 
 <script>
 import axios from "axios";
+import VueReCaptcha from "vue-recaptcha";
 
 // const host = 'http://localhost:5000';
 const host = "https://minggumalam-api.herokuapp.com";
 
 export default {
   bodyClass: "landing-page",
+  components: {
+    'vue-recaptcha': VueReCaptcha
+  },
   props: {
     header: {
       type: String,
@@ -216,8 +231,16 @@ export default {
       nama: null,
       email: null,
       pesan: null,
-      teamImg1: require("@/assets/img/faces/syafiq.jpg")
+      isLocal: process.env.NODE_ENV !== "production",
+      captchaVerified: false,
+      teamImg1: require("@/assets/img/faces/syafiq.jpg"),
+      sitekey: process.env.RECAPTCHA_PUBLIC_KEY
     };
+  },
+  mounted(){
+    if(this.isLocal){
+      this.captchaVerified = true;
+    }
   },
   computed: {
     headerStyle() {
@@ -235,7 +258,7 @@ export default {
     kirimTitipan(e) {
       e.preventDefault();
       // alert(this.nama + this.email + this.pesan);
-      if (this.nama && this.email && this.pesan) {
+      if (this.nama && this.email && this.pesan && this.captchaVerified) {
         axios
           .post(host + "/titip", {
             nama: this.nama,
@@ -250,7 +273,18 @@ export default {
             alert("Titipan kamu gagal kami terima :(");
             location.reload();
           });
+      } else {
+        alert("Form belum lengkap");
       }
+    },
+    onCaptchaVerified(response){
+      this.captchaVerified = true;
+    },
+    onCaptchaExpired(){
+      alert("Captcha Verification Failed!");
+    },
+    resetRecaptcha () {
+      this.$refs.recaptcha.reset() // Direct call reset method
     }
   }
 };
