@@ -272,9 +272,8 @@ export default {
   methods: {
     kirimTitipan(e) {
       e.preventDefault();
-      this.loading = true;
-      // alert(this.nama + this.email + this.pesan);
       if (this.nama && this.email && this.pesan && this.captchaVerified) {
+        this.loading = true;
         axios
           .post(host + "/titip", {
             nama: this.nama,
