@@ -166,7 +166,7 @@
                 <div class="md-layout">
                   <div class="md-layout-item md-size-50">
                     <md-field class="has-green">
-                      <label>Name</label>
+                      <label>Nama</label>
                       <md-input v-model="nama" type="text"></md-input>
                     </md-field>
                   </div>
@@ -200,6 +200,18 @@
                   </div>
                 </div>
               </form>
+
+              <modal v-if="loading" @close="hideLoading">
+
+                <template slot="header">
+                  <h4 class="modal-title">Mengirimkan titipan pesan dari kamu</h4>
+                </template>
+
+                <template slot="body">
+                  <md-progress-spinner md-mode="indeterminate"></md-progress-spinner>
+                </template>
+
+              </modal>
             </div>
           </div>
         </div>
@@ -211,6 +223,7 @@
 <script>
 import axios from "axios";
 import VueReCaptcha from "vue-recaptcha";
+import {Modal} from "@/components";
 
 // const host = 'http://localhost:5000';
 const host = "https://minggumalam-api.herokuapp.com";
@@ -218,7 +231,8 @@ const host = "https://minggumalam-api.herokuapp.com";
 export default {
   bodyClass: "landing-page",
   components: {
-    'vue-recaptcha': VueReCaptcha
+    'vue-recaptcha': VueReCaptcha,
+    Modal
   },
   props: {
     header: {
@@ -231,6 +245,7 @@ export default {
       nama: null,
       email: null,
       pesan: null,
+      loading: false,
       isLocal: process.env.NODE_ENV !== "production",
       captchaVerified: false,
       teamImg1: require("@/assets/img/faces/syafiq.jpg"),
@@ -257,6 +272,7 @@ export default {
   methods: {
     kirimTitipan(e) {
       e.preventDefault();
+      this.loading = true;
       // alert(this.nama + this.email + this.pesan);
       if (this.nama && this.email && this.pesan && this.captchaVerified) {
         axios
@@ -267,10 +283,12 @@ export default {
           })
           .then(() => {
             alert("Titipan kamu berhasil kami terima :)");
+            this.loading = false;
             location.reload();
           })
           .catch(e => {
             alert("Titipan kamu gagal kami terima :(");
+            this.loading = false;
             location.reload();
           });
       } else {
