@@ -182,7 +182,7 @@
                   <md-textarea v-model="pesan"></md-textarea>
                 </md-field>
                 <div class="md-layout">
-                  <div class="md-layout-item md-size-33 text-center mx-auto">
+                  <div class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 text-center mx-auto">
                     <vue-recaptcha
                       ref="recaptcha"
                       v-if="!isLocal"
@@ -193,7 +193,7 @@
                   </div>
                 </div>
                 <div class="md-layout">
-                  <div class="md-layout-item md-size-33 mx-auto text-center">
+                  <div class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 mx-auto text-center">
                     <md-button type="submit" class="md-success" @click="kirimTitipan"
                       >KIRIM TITIPAN</md-button
                     >
