@@ -188,7 +188,7 @@
                       v-if="!isLocal"
                       @verify="onCaptchaVerified"
                       @expired="onCaptchaExpired"
-                      sitekey="6LeIFrEZAAAAAFtfwyK5hozRVZp2asn9TaoGS8M1">
+                      sitekey="6LeeG7EZAAAAAHmwFWBJGzLh_4ZP3juCAYQsuKZw">
                     </vue-recaptcha>
                   </div>
                 </div>
