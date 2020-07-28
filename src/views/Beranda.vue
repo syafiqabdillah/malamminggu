@@ -182,19 +182,27 @@
                   <md-textarea v-model="pesan"></md-textarea>
                 </md-field>
                 <div class="md-layout">
-                  <div class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 text-center mx-auto">
+                  <div
+                    class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 text-center mx-auto"
+                  >
                     <vue-recaptcha
                       ref="recaptcha"
                       v-if="!isLocal"
                       @verify="onCaptchaVerified"
                       @expired="onCaptchaExpired"
-                      sitekey="6LeeG7EZAAAAAHmwFWBJGzLh_4ZP3juCAYQsuKZw">
+                      sitekey="6LeeG7EZAAAAAHmwFWBJGzLh_4ZP3juCAYQsuKZw"
+                    >
                     </vue-recaptcha>
                   </div>
                 </div>
                 <div class="md-layout">
-                  <div class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 mx-auto text-center">
-                    <md-button type="submit" class="md-success" @click="kirimTitipan"
+                  <div
+                    class="md-layout-item md-size-33 md-small-size-100 md-xsmall-size-100 mx-auto text-center"
+                  >
+                    <md-button
+                      type="submit"
+                      class="md-success"
+                      @click="kirimTitipan"
                       >KIRIM TITIPAN</md-button
                     >
                   </div>
@@ -202,15 +210,17 @@
               </form>
 
               <modal v-if="loading" @close="hideLoading">
-
                 <template slot="header">
-                  <h4 class="modal-title">Mengirimkan titipan pesan dari kamu</h4>
+                  <h4 class="modal-title">
+                    Mengirimkan titipan pesan dari kamu
+                  </h4>
                 </template>
 
                 <template slot="body">
-                  <md-progress-spinner md-mode="indeterminate"></md-progress-spinner>
+                  <md-progress-spinner
+                    md-mode="indeterminate"
+                  ></md-progress-spinner>
                 </template>
-
               </modal>
             </div>
           </div>
@@ -223,7 +233,7 @@
 <script>
 import axios from "axios";
 import VueReCaptcha from "vue-recaptcha";
-import {Modal} from "@/components";
+import { Modal } from "@/components";
 
 // const host = 'http://localhost:5000';
 const host = "https://minggumalam-api.herokuapp.com";
@@ -231,7 +241,7 @@ const host = "https://minggumalam-api.herokuapp.com";
 export default {
   bodyClass: "landing-page",
   components: {
-    'vue-recaptcha': VueReCaptcha,
+    "vue-recaptcha": VueReCaptcha,
     Modal
   },
   props: {
@@ -252,8 +262,8 @@ export default {
       sitekey: process.env.RECAPTCHA_PUBLIC_KEY
     };
   },
-  mounted(){
-    if(this.isLocal){
+  mounted() {
+    if (this.isLocal) {
       this.captchaVerified = true;
     }
   },
@@ -294,14 +304,14 @@ export default {
         alert("Form belum lengkap");
       }
     },
-    onCaptchaVerified(response){
+    onCaptchaVerified(response) {
       this.captchaVerified = true;
     },
-    onCaptchaExpired(){
+    onCaptchaExpired() {
       alert("Captcha Verification Failed!");
     },
-    resetRecaptcha () {
-      this.$refs.recaptcha.reset() // Direct call reset method
+    resetRecaptcha() {
+      this.$refs.recaptcha.reset(); // Direct call reset method
     }
   }
 };
@@ -318,5 +328,17 @@ export default {
 
 .md-has-textarea + .md-layout {
   margin-top: 15px;
+}
+.description {
+  color: black;
+}
+.description,
+.card-description,
+.footer-big p {
+  color: black;
+}
+.info p {
+  color: black;
+  font-size: 16px;
 }
 </style>

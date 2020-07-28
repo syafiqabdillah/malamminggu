@@ -8,7 +8,9 @@
   >
     <div class="md-toolbar-row md-collapse-lateral">
       <div class="md-toolbar-section-start">
-        <h3 v-if="!isMobile" class="md-title">Minggu Malam</h3>
+        <h3 v-if="!isMobile" class="md-title" v-on:click="goHome">
+          Minggu Malam
+        </h3>
       </div>
       <div class="md-toolbar-section-end">
         <md-button
@@ -62,24 +64,11 @@
                   </div>
                 </a>
               </li>
-              <!-- 
-              <md-list-item
-                href="https://demos.creative-tim.com/vue-material-kit/documentation/"
-                target="_blank"
-                v-if="showDownload"
-              >
-                <i class="material-icons">content_paste</i>
-                <p>Documentation</p>
-              </md-list-item>
 
-              <md-list-item
-                href="javascript:void(0)"
-                @click="scrollToElement()"
-                v-if="showDownload"
-              >
-                <i class="material-icons">cloud_download</i>
-                <p>Download</p>
-              </md-list-item> -->
+              <md-list-item href="/profile">
+                <i class="material-icons">content_paste</i>
+                <p>Daftar Titipan</p>
+              </md-list-item>
 
               <!-- <li class="md-list-item" v-else>
                 <a
@@ -217,6 +206,9 @@ export default {
     }
   },
   methods: {
+    goHome() {
+      location.href = "/";
+    },
     bodyClick() {
       let bodyClick = document.getElementById("bodyClick");
 
@@ -270,3 +262,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.md-title {
+  font-weight: 400;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+}
+</style>
