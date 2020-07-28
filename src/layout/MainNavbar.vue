@@ -65,7 +65,7 @@
                 </a>
               </li>
 
-              <md-list-item href="/profile">
+              <md-list-item href="/titipan">
                 <i class="material-icons">content_paste</i>
                 <p>Daftar Titipan</p>
               </md-list-item>

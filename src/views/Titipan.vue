@@ -8,93 +8,25 @@
       <div class="section profile-content">
         <div class="container">
           <div class="md-layout">
-            <div class="md-layout-item md-size-50 mx-auto">
+            <div class="md-layout-item md-size-100 mx-auto">
               <div class="profile">
-                <div class="avatar">
-                  <img
-                    :src="img"
-                    alt="Circle Image"
-                    class="img-raised rounded-circle img-fluid"
-                  />
-                </div>
                 <div class="name">
-                  <h3 class="title">Carla Hortensia</h3>
-                  <h6>Designer</h6>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-dribbble"
-                    ><i class="fab fa-dribbble"></i
-                  ></md-button>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-twitter"
-                    ><i class="fab fa-twitter"></i
-                  ></md-button>
-                  <md-button
-                    href="javascript:void(0)"
-                    class="md-just-icon md-simple md-pinterest"
-                    ><i class="fab fa-pinterest"></i
-                  ></md-button>
+                  <h3 class="title">Titipan Pesan untuk Alumni</h3>
+
+                  <md-table v-model="list_titipan" md-card>
+                    <md-table-row slot="md-table-row" slot-scope="{ item }">
+                      <md-table-cell md-label="Nama">
+                        {{ item.nama }}
+                      </md-table-cell>
+
+                      <md-table-cell md-label="Isi Pesan">
+                        {{ item.isi }}
+                      </md-table-cell>
+                    </md-table-row>
+                  </md-table>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="description text-center">
-            <p>
-              An artist of considerable range, Chet Faker — the name taken by
-              Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-              and records all of his own music, giving it a warm, intimate feel
-              with a solid groove structure.
-            </p>
-          </div>
-          <div class="profile-tabs">
-            <tabs
-              :tab-name="['Studio', 'Work', 'Favorite']"
-              :tab-icon="['camera', 'palette', 'favorite']"
-              plain
-              nav-pills-icons
-              color-button="success"
-            >
-              <!-- here you can add your content for tab-content -->
-              <template slot="tab-pane-1">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane1[0].image" class="rounded" />
-                    <img :src="tabPane1[1].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane1[3].image" class="rounded" />
-                    <img :src="tabPane1[2].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-              <template slot="tab-pane-2">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane2[0].image" class="rounded" />
-                    <img :src="tabPane2[1].image" class="rounded" />
-                    <img :src="tabPane2[2].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane2[3].image" class="rounded" />
-                    <img :src="tabPane2[4].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-              <template slot="tab-pane-3">
-                <div class="md-layout">
-                  <div class="md-layout-item md-size-25 ml-auto">
-                    <img :src="tabPane3[0].image" class="rounded" />
-                    <img :src="tabPane3[1].image" class="rounded" />
-                  </div>
-                  <div class="md-layout-item md-size-25 mr-auto">
-                    <img :src="tabPane3[2].image" class="rounded" />
-                    <img :src="tabPane3[3].image" class="rounded" />
-                    <img :src="tabPane3[4].image" class="rounded" />
-                  </div>
-                </div>
-              </template>
-            </tabs>
           </div>
         </div>
       </div>
@@ -103,44 +35,77 @@
 </template>
 
 <script>
-import { Tabs } from "@/components";
+import axios from "axios";
+const host = "https://minggumalam-api.herokuapp.com";
 export default {
-  components: {
-    Tabs
-  },
+  components: {},
   bodyClass: "profile-page",
+  created() {
+    axios
+      .get(host + "/get-titipan")
+      .then(response => {
+        const titipan = response.data.data;
+        titipan.forEach(pesan => {
+          const id = pesan[0];
+          const nama = pesan[1];
+          const isi = pesan[3];
+          this.list_titipan.push({
+            id: id,
+            nama: nama,
+            isi: isi
+          });
+        });
+      })
+      .catch(e => {
+        alert(e);
+      });
+  },
   data() {
     return {
-      tabPane1: [
-        { image: require("@/assets/img/examples/studio-1.jpg") },
-        { image: require("@/assets/img/examples/studio-2.jpg") },
-        { image: require("@/assets/img/examples/studio-4.jpg") },
-        { image: require("@/assets/img/examples/studio-5.jpg") }
+      users: [
+        {
+          id: 1,
+          name: "Shawna Dubbin",
+          email: "sdubbin0@geocities.com",
+          gender: "Male",
+          title: "Assistant Media Planner"
+        },
+        {
+          id: 2,
+          name: "Odette Demageard",
+          email: "odemageard1@spotify.com",
+          gender: "Female",
+          title: "Account Coordinator"
+        },
+        {
+          id: 3,
+          name: "Lonnie Izkovitz",
+          email: "lizkovitz3@youtu.be",
+          gender: "Female",
+          title: "Operator"
+        },
+        {
+          id: 4,
+          name: "Thatcher Stave",
+          email: "tstave4@reference.com",
+          gender: "Male",
+          title: "Software Test Engineer III"
+        },
+        {
+          id: 5,
+          name: "Clarinda Marieton",
+          email: "cmarietonh@theatlantic.com",
+          gender: "Female",
+          title: "Paralegal"
+        }
       ],
-      tabPane2: [
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/cynthia-del-rio.jpg") },
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/clem-onojegaw.jpg") }
-      ],
-      tabPane3: [
-        { image: require("@/assets/img/examples/mariya-georgieva.jpg") },
-        { image: require("@/assets/img/examples/studio-3.jpg") },
-        { image: require("@/assets/img/examples/clem-onojeghuo.jpg") },
-        { image: require("@/assets/img/examples/olu-eletu.jpg") },
-        { image: require("@/assets/img/examples/studio-1.jpg") }
-      ]
+      list_titipan: []
     };
   },
   props: {
     header: {
       type: String,
       default: require("@/assets/img/city-profile.jpg")
-    },
-    img: {
-      type: String,
-      default: require("@/assets/img/faces/christian.jpg")
     }
   },
   computed: {
@@ -160,7 +125,7 @@ export default {
 
 .profile-tabs::v-deep {
   .md-card-tabs .md-list {
-    justify-content: center;
+    justify-content: left;
   }
 
   [class*="tab-pane-"] {
@@ -171,5 +136,17 @@ export default {
       margin-bottom: 2.142rem;
     }
   }
+}
+
+.profile-page .profile {
+  text-align: left;
+}
+
+.profile-page .page-header {
+  height: 200px;
+}
+
+.title {
+  color: white;
 }
 </style>
