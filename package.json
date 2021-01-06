@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@vue/cli": "^4.4.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "3.5.0",
     "nouislider": "14.1.0",
     "v-tooltip": "2.0.2",
